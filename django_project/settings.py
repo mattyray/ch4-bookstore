@@ -21,7 +21,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts.apps.AccountsConfig', ### This is the path to the accounts app
 ]
+
+AUTH_USER_MODEL = 'accounts.CustomUser' # This is the path to the custom user model
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
