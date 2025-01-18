@@ -1,5 +1,3 @@
-<!--templates/home.html-->
-
 {% extends "_base.html" %}
 
 {% block title %}Homepage{% endblock title %}
@@ -8,8 +6,9 @@
     <h1>Welcome to the Bookstore</h1>
     {% if user.is_authenticated %}
         <p>Hi {{ user.email }}!</p>
+        <a href="{% url 'logout' %}">Logout</a>
     {% else %}
         <p>You are not logged in! BRUV</p>
-        <a href="{ url 'login' }">Login</a>
+        <a href="{% url 'login' %}">Login</a>
     {% endif %}
 {% endblock content %}
