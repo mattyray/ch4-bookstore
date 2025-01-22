@@ -1,15 +1,61 @@
 {% extends "_base.html" %}
-
+{% load static %}
 {% block title %}Homepage{% endblock title %}
 
 {% block content %}
-    <h1>Welcome to the Bookstore</h1>
-    {% if user.is_authenticated %}
-        <p>Hi {{ user.email }}!</p>
-        <a href="{% url 'logout' %}">Logout</a>
-    {% else %}
-        <p>You are not logged in! BRUV</p>
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'signup' %}">Sign Up</a>
-    {% endif %}
+<div class="text-center py-5">
+    <!-- Hero Section -->
+    <div class="jumbotron bg-light p-4 rounded shadow-sm">
+        <h1 class="display-4">Welcome to the Bookstore</h1>
+        <p class="lead">Discover your next great adventure among our curated collection of books.</p>
+        <hr class="my-4">
+        {% if user.is_authenticated %}
+            <p class="fw-bold">Hi {{ user.email }}! Happy reading!</p>
+            <a href="{% url 'logout' %}" class="btn btn-danger btn-lg mt-3">Logout</a>
+        {% else %}
+            <p class="text-muted">You are not logged in.</p>
+            <div class="d-flex justify-content-center gap-2">
+                <a href="{% url 'login' %}" class="btn btn-primary btn-lg">Login</a>
+                <a href="{% url 'signup' %}" class="btn btn-success btn-lg">Sign Up</a>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Featured Section -->
+    <div class="mt-5">
+        <h2 class="mb-4">📚 Featured Collections</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/fiction.jpg' %}" class="card-img-top" alt="Fiction Books">
+                    <div class="card-body">
+                        <h5 class="card-title">Fiction</h5>
+                        <p class="card-text">Dive into imaginative worlds with our wide selection of fiction titles.</p>
+                        <a href="#" class="btn btn-outline-primary">Browse Fiction</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/non-fiction.jpg' %}" class="card-img-top" alt="Non-Fiction Books">
+                    <div class="card-body">
+                        <h5 class="card-title">Non-Fiction</h5>
+                        <p class="card-text">Expand your knowledge with our non-fiction bestsellers.</p>
+                        <a href="#" class="btn btn-outline-primary">Browse Non-Fiction</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/children.jpg' %}" class="card-img-top" alt="Children's Books">
+                    <div class="card-body">
+                        <h5 class="card-title">Children's Books</h5>
+                        <p class="card-text">Enchant the little ones with stories they’ll cherish forever.</p>
+                        <a href="#" class="btn btn-outline-primary">Browse Children's Books</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
