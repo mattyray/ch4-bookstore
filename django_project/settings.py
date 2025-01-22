@@ -119,4 +119,6 @@ LOGIN_REDIRECT_URL = 'home' ###Added this line
 LOGOUT_REDIRECT_URL = 'home' ###Added this lin
 STATIC_URL = '/static/' ###Added this line
 STATICFILES_DIRS = [BASE_DIR / 'static'] ###Added this line
+STATIC_ROOT = BASE_DIR / 'staticfiles' ###Added this line
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage' ###Added this line
 
