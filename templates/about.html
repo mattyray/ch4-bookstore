@@ -1,0 +1,55 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block title %}About Us{% endblock title %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>About Us</h1>
+            <p class="lead">
+                Welcome to <strong>Our Bookstore</strong>, your one-stop destination for all things literary. 
+                We’re passionate about connecting readers with their next great adventure, helping you explore 
+                new worlds and ideas one page at a time.
+            </p>
+            <p>
+                From timeless classics to the latest bestsellers, our carefully curated collection has something 
+                for everyone. Whether you’re looking for fiction, non-fiction, or children’s books, we’ve got you covered.
+            </p>
+            <p>
+                Founded with a love for stories and community, our bookstore isn’t just about selling books—it’s 
+                about creating a space where ideas thrive and imaginations soar.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <img src="{% static 'images/bookstore_about.jpg' %}" alt="About Our Bookstore" class="img-fluid rounded shadow">
+        </div>
+    </div>
+    <hr class="my-5">
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Our Mission</h3>
+            <p>
+                To inspire, educate, and entertain by providing a diverse range of books and fostering 
+                a love for reading in our community.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h3>Our Values</h3>
+            <ul>
+                <li>Promoting literacy and education</li>
+                <li>Supporting local authors and publishers</li>
+                <li>Building a welcoming and inclusive community</li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3>Why Choose Us?</h3>
+            <p>
+                With personalized recommendations, exclusive events, and a cozy atmosphere, we aim 
+                to make every visit to our bookstore memorable.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
