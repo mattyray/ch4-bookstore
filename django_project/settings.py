@@ -119,10 +119,17 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+#New new ############################
+
 LOGIN_REDIRECT_URL = 'home' ###Added this line
 LOGOUT_REDIRECT_URL = 'home' ###Added this lin
+
+
 STATIC_URL = '/static/' ###Added this line
 STATICFILES_DIRS = [BASE_DIR / 'static'] ###Added this line
 STATIC_ROOT = BASE_DIR / 'staticfiles' ###Added this line
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage' ###Added this line
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
