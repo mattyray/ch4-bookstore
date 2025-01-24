@@ -24,6 +24,10 @@ INSTALLED_APPS = [
     #crispy forms and crispy bootstrap
     'crispy_forms',
     'crispy_bootstrap5',
+    #allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     #local apps
     'accounts.apps.AccountsConfig', ### This is the path to the accounts app
     'pages.apps.PagesConfig', ### This is the path to the pages app
@@ -121,8 +125,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #New new ############################
 
-LOGIN_REDIRECT_URL = 'home' ###Added this line
-LOGOUT_REDIRECT_URL = 'home' ###Added this lin
+
 
 
 STATIC_URL = '/static/' ###Added this line
@@ -132,4 +135,28 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage' ##
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+#allauth settings
+SITE_ID = 1
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+LOGIN_REDIRECT_URL = 'home' 
+LOGOUT_REDIRECT_URL = 'home' 
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+    }
+}
+
 

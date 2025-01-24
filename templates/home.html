@@ -11,12 +11,12 @@
         <hr class="my-4">
         {% if user.is_authenticated %}
             <p class="fw-bold">Hi {{ user.email }}! Happy reading!</p>
-            <a href="{% url 'logout' %}" class="btn btn-danger btn-lg mt-3">Logout</a>
+            <a href="{% url 'account_logout' %}" class="btn btn-danger btn-lg mt-3">Logout</a>
         {% else %}
             <p class="text-muted">You are not logged in.</p>
             <div class="d-flex justify-content-center gap-2">
-                <a href="{% url 'login' %}" class="btn btn-primary btn-lg">Login</a>
-                <a href="{% url 'signup' %}" class="btn btn-success btn-lg">Sign Up</a>
+                <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg">Login</a>
+                <a href="{% url 'account_signup' %}" class="btn btn-success btn-lg">Sign Up</a>
             </div>
         {% endif %}
     </div>
