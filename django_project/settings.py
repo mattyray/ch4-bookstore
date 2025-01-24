@@ -21,6 +21,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #crispy forms and crispy bootstrap
+    'crispy_forms',
+    'crispy_bootstrap5',
+    #local apps
     'accounts.apps.AccountsConfig', ### This is the path to the accounts app
     'pages.apps.PagesConfig', ### This is the path to the pages app
 ]
