@@ -149,6 +149,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 
+
+
 ##for SSO.  may need to change this to the actual domain i dont underastand this part, will it work on localhost? \
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
