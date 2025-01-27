@@ -27,7 +27,6 @@ INSTALLED_APPS = [
     #allauth
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
     #local apps
     'accounts.apps.AccountsConfig', ### This is the path to the accounts app
     'pages.apps.PagesConfig', ### This is the path to the pages app
@@ -138,7 +137,14 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 #allauth settings
 LOGIN_REDIRECT_URL = 'home' 
-LOGOUT_REDIRECT_URL = 'home' 
+
+#MORE ALLAUTH SETTINGS
+
+ACCOUNT_LOGOUT_REDIRECT = 'home'
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
 
 SITE_ID = 1
 AUTHENTICATION_BACKENDS = [
@@ -152,17 +158,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 ##for SSO.  may need to change this to the actual domain i dont underastand this part, will it work on localhost? \
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        },
-    }
-}
 
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False # new
 
