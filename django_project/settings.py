@@ -137,6 +137,9 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 #allauth settings
+LOGIN_REDIRECT_URL = 'home' 
+LOGOUT_REDIRECT_URL = 'home' 
+
 SITE_ID = 1
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -144,9 +147,9 @@ AUTHENTICATION_BACKENDS = [
 ]
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-LOGIN_REDIRECT_URL = 'home' 
-LOGOUT_REDIRECT_URL = 'home' 
 
+
+##for SSO.  may need to change this to the actual domain i dont underastand this part, will it work on localhost? \
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE': [
@@ -159,4 +162,5 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False # new
 
