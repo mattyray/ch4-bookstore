@@ -1,0 +1,5 @@
+
+{% load i18n %}
+{% autoescape off %}
+{% blocktrans %}Matt's Bookstore: Please Confirm Your Sign Up{% endblocktrans %}
+{% endautoescape %}
