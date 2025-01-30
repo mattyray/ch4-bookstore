@@ -29,7 +29,7 @@
                         {% url 'account_email' as email_url %}
                         <p class="text-danger mt-3">
                             {% blocktrans %}
-                                This email confirmation link has expired or is invalid. 
+                                This email confirmation link has expired or is invalid. Oh no!
                                 Please <a href="{{ email_url }}" class="text-decoration-none">request a new confirmation email</a>.
                             {% endblocktrans %}
                         </p>
