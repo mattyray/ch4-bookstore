@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     #local apps
     'accounts.apps.AccountsConfig', ### This is the path to the accounts app
     'pages.apps.PagesConfig', ### This is the path to the pages app
+    'books.apps.BooksConfig', ### This is the path to the books app
 ]
 
 AUTH_USER_MODEL = 'accounts.CustomUser' # This is the path to the custom user model
