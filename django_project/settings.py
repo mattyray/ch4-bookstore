@@ -1,5 +1,6 @@
 from pathlib import Path
 from environs import Env  # Import environs
+import os
 
 # Initialize Env and read environment variables
 env = Env()
@@ -162,4 +163,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ##for SSO.  may need to change this to the actual domain i dont underastand this part, will it work on localhost? \
 
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False # new
+
+# MEDIA CONFIGURATION
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")    
 
