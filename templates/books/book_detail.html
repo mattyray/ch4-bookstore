@@ -1,5 +1,6 @@
 {% extends "_base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}  <!-- ✅ Load crispy forms -->
 
 {% block title %}{{ book.title }}{% endblock title %}
 
@@ -26,6 +27,29 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Reviews Section -->
+            <h3 class="mt-5">Reviews</h3>
+            {% for review in book.reviews.all %}
+                <div class="border p-3 my-3">
+                    <strong>{{ review.user.username }}</strong> ({{ review.created_at|date:"M d, Y" }})
+                    <p>{{ review.content }}</p>
+                </div>
+            {% empty %}
+                <p>No reviews yet. Be the first to review this book!</p>
+            {% endfor %}
+
+            <!-- Review Submission Form -->
+            {% if user.is_authenticated %}
+                <h4 class="mt-4">Add a Review</h4>
+                <form method="post" action="{% url 'add_review' book.pk %}">
+                    {% csrf_token %}
+                    {{ form|crispy }}  <!-- ✅ Use Crispy Forms -->
+                    <button type="submit" class="btn btn-primary mt-2">Submit Review</button>
+                </form>
+            {% else %}
+                <p class="text-muted mt-4">You must be <a href="{% url 'account_login' %}">logged in</a> to leave a review.</p>
+            {% endif %}
         </div>
     </div>
 </div>
