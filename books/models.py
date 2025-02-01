@@ -29,10 +29,19 @@ class Book(models.Model):
         return reverse("book_detail", args=[str(self.id)])
 
 class Review(models.Model):
+    STAR_RATINGS = [
+        (1, "⭐☆☆☆☆ (1)"),
+        (2, "⭐⭐☆☆☆ (2)"),
+        (3, "⭐⭐⭐☆☆ (3)"),
+        (4, "⭐⭐⭐⭐☆ (4)"),
+        (5, "⭐⭐⭐⭐⭐ (5)"),
+    ]
+
     book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="reviews")
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # ✅ Fixed
     content = models.TextField()
+    rating = models.IntegerField(choices=STAR_RATINGS, default=5)  # ✅ New rating field
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Review by {self.user.username} on {self.book.title}"
+        return f"Review by {self.user.username} - {self.get_rating_display()} on {self.book.title}"

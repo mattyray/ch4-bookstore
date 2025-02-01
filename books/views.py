@@ -58,6 +58,7 @@ def add_review(request, pk):
             review = form.save(commit=False)
             review.book = book
             review.user = request.user
+            review.rating = form.cleaned_data["rating"]  # ✅ Save rating
             review.save()
             return redirect("book_detail", pk=book.pk)
 

@@ -6,7 +6,12 @@ class ReviewForm(forms.ModelForm):
         widget=forms.Textarea(attrs={"rows": 3, "class": "form-control", "placeholder": "Write your review..."}),
         label=""
     )
+    rating = forms.ChoiceField(
+        choices=Review.STAR_RATINGS,
+        widget=forms.Select(attrs={"class": "form-select"}),  # ✅ Bootstrap dropdown
+        label="Rating"
+    )
 
     class Meta:
         model = Review
-        fields = ["content"]
+        fields = ["content", "rating"]  # ✅ Include rating field
