@@ -6,6 +6,13 @@ from django.contrib.auth.decorators import login_required
 from .models import Book, Review
 from .forms import ReviewForm
 
+class SearchResultsListView(ListView):
+    model = Book
+    template_name = "books/search_results.html"
+    context_object_name = "book_list"
+
+ 
+
 # ✅ Only logged-in users can view books
 class BookListView(LoginRequiredMixin, ListView):
     model = Book
