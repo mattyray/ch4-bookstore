@@ -5,11 +5,20 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from .models import Book, Review
 from .forms import ReviewForm
+from django.db.models import Q  # Import Q for advanced filtering
 
 class SearchResultsListView(ListView):
     model = Book
     template_name = "books/search_results.html"
     context_object_name = "book_list"
+
+    def get_queryset(self):
+        query = self.request.GET.get("q")  # Get the search term from the request
+        if query:
+            return Book.objects.filter(
+                Q(title__icontains=query) | Q(author__icontains=query)
+            )
+        return Book.objects.none()  # Return no results if no query is entered
 
  
 

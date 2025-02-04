@@ -24,8 +24,9 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+        
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'home' %}">Home</a>
                         </li>
@@ -35,10 +36,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'book_list' %}">Books</a>
                         </li>
-                        
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
+                    </ul>
+        
+                    <!-- Search Form -->
+                    <form class="d-flex" action="{% url 'search_results' %}" method="get">
+                        <input class="form-control me-2" type="search" name="q" placeholder="Search books..." aria-label="Search" required>
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+        
+                    <ul class="navbar-nav ms-3">
                         {% if user.is_authenticated %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'account_logout' %}">Log Out</a>
@@ -55,6 +64,7 @@
                 </div>
             </div>
         </nav>
+        
 
         <!-- Main Content -->
         <div class="container my-5">
