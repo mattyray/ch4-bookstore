@@ -13,3 +13,5 @@ urlpatterns = [
     path("category/<str:category>/", BookListView.as_view(), name="book_category"),
     path("search/", SearchResultsListView.as_view(), name="search_results"),
 ]
+
+

@@ -1,10 +1,17 @@
 from pathlib import Path
 from environs import Env  # Import environs
-import os
+import os, socket
+
+
 
 # Initialize Env and read environment variables
 env = Env()
 env.read_env()
+
+
+hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]  # ✅ Allows Debug Toolbar in Docker
+
 
 
 # Build paths inside the project
@@ -32,6 +39,7 @@ INSTALLED_APPS = [
     #allauth
     'allauth',
     'allauth.account',
+    'debug_toolbar',
     #local apps
     'accounts.apps.AccountsConfig', ### This is the path to the accounts app
     'pages.apps.PagesConfig', ### This is the path to the pages app
@@ -49,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware', #enable debug toolbar
 ]
 
 ROOT_URLCONF = 'django_project.urls'
