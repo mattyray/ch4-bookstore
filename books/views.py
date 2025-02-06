@@ -31,10 +31,11 @@ class BookListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         """Optimize book listing retrieval"""
         category = self.kwargs.get("category")
-        queryset = Book.objects.select_related("author")  # ✅ Fetch author efficiently
+        queryset = Book.objects.all()  # Removed select_related("author")
         if category:
             return queryset.filter(category=category)
         return queryset
+
 
     
 class BookDetailView(LoginRequiredMixin, DetailView):
