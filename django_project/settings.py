@@ -50,6 +50,7 @@ AUTH_USER_MODEL = 'accounts.CustomUser' # This is the path to the custom user mo
 
 
 MIDDLEWARE = [
+    'django.middleware.cache.UpdateCacheMiddleware',  # new 12pm feb 10
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -58,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware', #enable debug toolbar
+    'django.middleware.cache.FetchFromCacheMiddleware',  # new 12pm feb 10
 ]
 
 ROOT_URLCONF = 'django_project.urls'
@@ -175,6 +177,11 @@ ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False # new
 
 # MEDIA CONFIGURATION
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")    
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")   
+
+#cache settings
+CACHE_MIDDLEWARE_ALIAS = "default"
+CACHE_MIDDLEWARE_SECONDS = 604800
+CACHE_MIDDLEWARE_KEY_PREFIX = ""
 
 SECURE_SSL_REDIRECT = False
