@@ -37,7 +37,7 @@
                             <a class="nav-link" href="{% url 'book_list' %}">Books</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                         </li>
                     </ul>
         
@@ -81,8 +81,7 @@
             <div class="container text-center">
                 <p>&copy; {{ current_year }} Matt's Baller Bookstore. All rights reserved.</p>
                 <p>
-                    <a href="#" class="text-decoration-none text-white">Privacy Policy</a> |
-                    <a href="#" class="text-decoration-none text-white">Terms & Conditions</a>
+                    <a href="{% url 'privacy_policy' %}" class="text-decoration-none text-white">Privacy Policy & Terms & Conditions</a>
                 </p>
             </div>
         </footer>
