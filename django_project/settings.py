@@ -6,7 +6,7 @@ import os, socket
 
 # Initialize Env and read environment variables
 env = Env()
-env.read_env()
+env.read_env()  
 
 
 hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
@@ -165,7 +165,13 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Email Settings for Gmail
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "mnraynor90@gmail.com"  # Replace with your Gmail
+EMAIL_HOST_PASSWORD = "bbyl xwmw kbwt namn"  # Use an App Password, not your real password
 
 
 
