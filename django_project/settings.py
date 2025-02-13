@@ -19,7 +19,7 @@ SECRET_KEY = env("DJANGO_SECRET_KEY", default="No Secret Key Found")
 DEBUG = env.bool("DJANGO_DEBUG", default=False)
 
 # Allowed Hosts (Use a fallback if not set)
-ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["localhost", "127.0.0.1", "0.0.0.0"])
+ALLOWED_HOSTS = ["https://mattsbookstore-c15521949514.herokuapp.com", "localhost", "127.0.0.1"]
 
 # Application definition
 INSTALLED_APPS = [
