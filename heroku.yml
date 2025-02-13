@@ -1,0 +1,12 @@
+build:
+  docker:
+    web: Dockerfile  # Uses the Dockerfile to build the container
+run:
+  web: gunicorn django_project.wsgi --bind 0.0.0.0:8000
+config:
+  DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+  DJANGO_DEBUG: false
+  DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS}
+  DATABASE_URL: ${DATABASE_URL}
+  EMAIL_HOST_USER: ${EMAIL_HOST_USER}
+  EMAIL_HOST_PASSWORD: ${EMAIL_HOST_PASSWORD}
